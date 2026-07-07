@@ -1,0 +1,53 @@
+{
+  "name": "resume-analyzer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "server": "npx tsx server/index.ts"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.0.2",
+    "@react-three/drei": "^10.1.2",
+    "@react-three/fiber": "^9.2.6",
+    "better-sqlite3": "^12.11.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.1.0",
+    "framer-motion": "^12.12.1",
+    "groq-sdk": "^1.3.0",
+    "gsap": "^3.12.8",
+    "howler": "^2.2.4",
+    "mammoth": "^1.12.0",
+    "multer": "^2.2.0",
+    "pdf-parse": "^2.4.5",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.7.1",
+    "three": "^0.176.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.6",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/howler": "^2.2.12",
+    "@types/multer": "^2.2.0",
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.176.0",
+    "@vitejs/plugin-react": "^6.0.3",
+    "clsx": "^2.1.1",
+    "oxlint": "^1.71.0",
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss": "^4.1.6",
+    "tsx": "^4.19.4",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1"
+  }
+}

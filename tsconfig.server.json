@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./dist-server",
+    "rootDir": "./server",
+    "declaration": true,
+    "types": ["node"]
+  },
+  "include": ["server"]
+}
