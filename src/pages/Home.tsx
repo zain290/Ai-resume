@@ -29,7 +29,7 @@ export function Home() {
   }, [])
 
   return (
-    <div className="relative">
+    <div className="relative pt-24 bg-background w-full flex flex-col items-center">
       <AnimatePresence mode="wait">
         {result ? (
           <motion.div
@@ -38,7 +38,7 @@ export function Home() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="py-12 px-4"
+            className="py-12 px-4 w-full"
           >
             <ResultsDashboard result={result} onReset={handleReset} />
           </motion.div>
@@ -48,19 +48,20 @@ export function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            className="w-full flex flex-col items-center"
           >
-            <section className="min-h-screen flex items-center justify-center px-4 py-16">
-              <div className="w-full max-w-xl mx-auto text-center">
+            <section className="w-full flex items-center justify-center px-4 pt-12 pb-24">
+              <div className="w-full max-w-4xl mx-auto text-center">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.5 }}
-                  className="mb-8"
+                  className="mb-12"
                 >
-                  <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-500 via-pink-500 to-cyan-500 bg-clip-text text-transparent">
-                    AI Resume Analyzer
+                  <h1 className="text-4xl md:text-[56px] font-medium text-text mb-6 tracking-tight" style={{ fontFamily: 'Google Sans, var(--heading)' }}>
+                    RezFix
                   </h1>
-                  <p className="text-lg text-[#64748b] max-w-lg mx-auto">
+                  <p className="text-xl text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
                     Upload your resume, paste the job description. Get scored against the Google XYZ formula with actionable improvements.
                   </p>
                 </motion.div>
@@ -71,7 +72,7 @@ export function Home() {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm"
+                      className="mb-8 p-4 rounded-2xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm max-w-2xl mx-auto"
                     >
                       {error}
                     </motion.div>
@@ -84,10 +85,10 @@ export function Home() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
-                  className="mt-8 text-xs text-[#94a3b8]"
+                  className="mt-8 text-sm text-neutral-500 dark:text-neutral-400"
                 >
-                  <span className="inline-flex items-center gap-1">
-                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <span className="inline-flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                     Your data stays private — resumes are analyzed and immediately discarded
@@ -96,12 +97,12 @@ export function Home() {
               </div>
             </section>
 
-            <section className="py-24 px-4">
-              <div className="w-full max-w-5xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
+            <section className="py-24 px-4 w-full bg-[var(--color-surface)]">
+              <div className="w-full max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-medium text-center mb-16 text-text">
                   How It Works
                 </h2>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-8">
                   {[
                     {
                       title: 'Upload & Paste',
@@ -122,10 +123,11 @@ export function Home() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.15, duration: 0.5 }}
-                      className="relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
+                      className="relative p-8 rounded-3xl bg-[var(--color-create-surface)] border border-transparent hover:border-neutral-300 dark:hover:border-neutral-600 transition-all duration-300 group shadow-sm hover:shadow-md"
                     >
-                      <h3 className="text-lg font-semibold text-[#0f172a] mb-2">{item.title}</h3>
-                      <p className="text-sm text-[#64748b] leading-relaxed">{item.desc}</p>
+                      <div className="text-4xl font-light text-neutral-300 dark:text-neutral-700 mb-6 group-hover:text-black dark:group-hover:text-white transition-colors duration-300">0{i+1}</div>
+                      <h3 className="text-xl font-medium text-text mb-4">{item.title}</h3>
+                      <p className="text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">{item.desc}</p>
                     </motion.div>
                   ))}
                 </div>
