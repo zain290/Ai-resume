@@ -52,9 +52,10 @@ const About: React.FC = () => {
   return (
     <div ref={containerRef} className="about-container">
       <SEO 
-        title="ALPHA | About Us" 
-        description={`${pageData.hero_line1} ${pageData.hero_line2}`} 
-        canonicalUrl="https://alpha.pro/about" 
+        title="RezFix | About Us - AI Resume Analyzer & Optimizer" 
+        description="Learn about RezFix, the AI-powered resume analyzer that uses the Google XYZ formula to score and optimize your resume for job applications. Upload, analyze, and improve." 
+        canonicalUrl="https://rezfix.app/about"
+        keywords="about RezFix, resume analyzer, AI resume tool, career optimization"
       />
       <section className="about-hero-section">
         <div className="antigravity-wrapper" style={{ opacity: 0.8 }}>

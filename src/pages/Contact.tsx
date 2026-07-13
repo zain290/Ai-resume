@@ -1,9 +1,16 @@
 import { motion } from 'framer-motion'
 import { Button } from '../components/ui/Button'
+import SEO from '../components/alpha/SEO'
 
 export function Contact() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-16">
+      <SEO
+        title="RezFix | Contact Us - Get in Touch"
+        description="Have questions or feedback about RezFix? Contact us for support, suggestions, or inquiries about our AI-powered resume analyzer."
+        canonicalUrl="https://rezfix.app/contact"
+        keywords="contact RezFix, resume analyzer support, contact us"
+      />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

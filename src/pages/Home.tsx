@@ -3,6 +3,53 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { UploadZone } from '../components/ui/UploadZone'
 import { ResultsDashboard } from '../components/ui/ResultsDashboard'
 import { api, type AnalysisResult } from '../services/api'
+import SEO from '../components/alpha/SEO'
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'RezFix',
+  url: 'https://rezfix.app',
+  description: 'AI-powered resume analyzer that scores your resume against job descriptions.',
+  logo: 'https://rezfix.app/favicon.svg',
+  sameAs: [],
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'RezFix',
+  url: 'https://rezfix.app',
+  description: 'AI-powered resume analyzer and optimizer using the Google XYZ formula.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://rezfix.app/?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How does the resume analyzer work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Upload your PDF or DOCX resume, paste the target job description, and our AI scores your resume using the Google XYZ formula, identifying matched and missing keywords.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the Google XYZ formula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The Google XYZ formula is "Accomplished X as measured by Y, by doing Z." It is a proven method for writing impactful resume bullet points.',
+      },
+    },
+  ],
+}
 
 export function Home() {
   const [loading, setLoading] = useState(false)
@@ -30,6 +77,13 @@ export function Home() {
 
   return (
     <div className="relative pt-24 bg-background w-full flex flex-col items-center">
+      <SEO
+        title="RezFix - AI Resume Analyzer & Optimizer | Score Your Resume"
+        description="Upload your resume and job description to get an instant AI-powered score using the Google XYZ formula. Identify missing keywords and get actionable rewrite suggestions."
+        canonicalUrl="https://rezfix.app/"
+        keywords="resume analyzer, AI resume, resume scoring, Google XYZ formula, job application, career, ATS optimization, resume optimizer"
+        schemaMarkup={JSON.stringify(organizationSchema) + ',' + JSON.stringify(websiteSchema) + ',' + JSON.stringify(faqSchema)}
+      />
       <AnimatePresence mode="wait">
         {result ? (
           <motion.div

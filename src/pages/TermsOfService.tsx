@@ -115,9 +115,10 @@ const TermsOfService: React.FC = () => {
   return (
     <div className="terms-container">
       <SEO 
-        title="RezFix | Terms of Service" 
-        description={`${pageData.hero_line1} - ${pageData.hero_line2}`} 
-        canonicalUrl="https://rezfix.app/terms" 
+        title="RezFix | Terms of Service - User Agreement" 
+        description="Review the RezFix terms of service. Understand your rights and responsibilities when using our AI-powered resume analysis platform." 
+        canonicalUrl="https://rezfix.app/terms"
+        keywords="terms of service, user agreement, RezFix terms, resume analyzer terms"
       />
       <section className="terms-hero-section">
         <div className="antigravity-wrapper" style={{ opacity: 0.8 }}>
