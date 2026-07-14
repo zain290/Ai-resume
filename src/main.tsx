@@ -9,7 +9,7 @@ import App from './App'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
-        <BrowserRouter basename="/rezfix">
+        <BrowserRouter>
         <ThemeProvider>
           <App />
         </ThemeProvider>

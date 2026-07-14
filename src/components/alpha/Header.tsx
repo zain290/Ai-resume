@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import './Header.css';
 
-const BASE = import.meta.env.BASE_URL
+
 
 type NavLinkItem = {
   name: string;
@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
 
         <div className="controls flex items-center">
           <img
-            src={theme === 'dark' ? `${BASE}images/moon.png` : `${BASE}images/sun.png`}
+            src={theme === 'dark' ? '/images/moon.png' : '/images/sun.png'}
             alt="Theme Toggle Icon"
             className="toggle-icon"
             onClick={(e) => { e.stopPropagation(); onToggleTheme(); }}
