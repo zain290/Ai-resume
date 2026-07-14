@@ -4,6 +4,19 @@ import { extractText } from '../utils/parse.js'
 import { analyzeResume, chatWithAI } from '../services/groq.service.js'
 import db from '../database.js'
 
+const RATE_LIMIT = Number(process.env.RATE_LIMIT_PER_HOUR) || 3
+
+function getHourWindow(): string {
+  const now = new Date()
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), 0, 0, 0).toISOString()
+}
+
+function getDeviceKey(req: Request): string {
+  const ip = req.ip || req.socket.remoteAddress || 'unknown'
+  const deviceId = req.headers['x-device-id'] as string | undefined
+  return deviceId ? `${ip}|${deviceId}` : ip
+}
+
 export class ResumeController {
   async uploadAndAnalyze(req: Request, res: Response, next: NextFunction) {
     try {
@@ -11,6 +24,27 @@ export class ResumeController {
         res.status(400).json({ error: 'No file uploaded' })
         return
       }
+
+      const deviceKey = getDeviceKey(req)
+      const windowStart = getHourWindow()
+
+      const row = db.prepare('SELECT request_count FROM rate_limits WHERE device_key = ? AND window_start = ?').get(deviceKey, windowStart) as { request_count: number } | undefined
+      const requestCount = row?.request_count || 0
+
+      if (requestCount >= RATE_LIMIT) {
+        res.status(429).json({
+          error: `Rate limit exceeded. ${RATE_LIMIT} resumes per hour allowed. Please try again later.`,
+          remaining: 0,
+          limit: RATE_LIMIT,
+        })
+        return
+      }
+
+      db.prepare(`
+        INSERT INTO rate_limits (device_key, window_start, request_count)
+        VALUES (?, ?, 1)
+        ON CONFLICT(device_key, window_start) DO UPDATE SET request_count = request_count + 1
+      `).run(deviceKey, windowStart)
 
       const jobDescription = req.body.jobDescription || ''
 
@@ -33,7 +67,9 @@ export class ResumeController {
 
       fs.unlink(req.file.path, () => {})
 
-      res.json(aiResult)
+      const remaining = Math.max(0, RATE_LIMIT - requestCount - 1)
+
+      res.json({ ...aiResult, remaining, limit: RATE_LIMIT })
     } catch (error) {
       next(error)
     }

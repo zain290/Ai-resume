@@ -1,11 +1,22 @@
 const API_BASE = '/api'
 
+function getDeviceId(): string {
+  let id = localStorage.getItem('rezfix_device_id')
+  if (!id) {
+    id = crypto.randomUUID()
+    localStorage.setItem('rezfix_device_id', id)
+  }
+  return id
+}
+
 export interface AnalysisResult {
   score: number
   xyz_improvements: string[]
   matched_keywords: string[]
   missing_keywords: string[]
   overall_summary: string
+  remaining?: number
+  limit?: number
 }
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
@@ -30,6 +41,7 @@ export const api = {
     formData.append('jobDescription', jobDescription)
     const res = await fetch(`${API_BASE}/upload-analyze`, {
       method: 'POST',
+      headers: { 'X-Device-Id': getDeviceId() },
       body: formData,
     })
     if (!res.ok) {
