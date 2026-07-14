@@ -50,3 +50,16 @@ export async function analyzeResume(
     overall_summary: result.overall_summary ?? 'No analysis available.',
   }
 }
+
+export async function chatWithAI(messages: { role: string; content: string }[]): Promise<string> {
+  const completion = await groq.chat.completions.create({
+    model: 'llama-3.3-70b-versatile',
+    messages: messages as any,
+    temperature: 0.5,
+    max_completion_tokens: 1024,
+  })
+
+  const text = completion.choices[0]?.message?.content?.trim() || ''
+  if (!text) throw new Error('Empty response from AI')
+  return text
+}

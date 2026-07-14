@@ -7,5 +7,6 @@ const controller = new ResumeController()
 
 router.post('/upload-analyze', upload.single('resume'), controller.uploadAndAnalyze.bind(controller))
 router.get('/history', controller.getHistory.bind(controller))
+router.post('/chat', controller.chat.bind(controller))
 
 export default router

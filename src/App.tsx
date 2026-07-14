@@ -8,6 +8,7 @@ import { Contact } from './pages/Contact'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import ScrollToTop from './components/alpha/ScrollToTop'
+import FixedCTA from './components/FixedCTA'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/terms" element={<TermsOfService />} />
         </Route>
       </Routes>
+      <FixedCTA />
     </>
   )
 }

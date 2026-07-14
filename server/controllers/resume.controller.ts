@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 import fs from 'fs'
 import { extractText } from '../utils/parse.js'
-import { analyzeResume } from '../services/groq.service.js'
+import { analyzeResume, chatWithAI } from '../services/groq.service.js'
 import db from '../database.js'
 
 export class ResumeController {
@@ -34,6 +34,23 @@ export class ResumeController {
       fs.unlink(req.file.path, () => {})
 
       res.json(aiResult)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async chat(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { messages } = req.body
+
+      if (!messages || !Array.isArray(messages) || messages.length === 0) {
+        res.status(400).json({ success: false, error: 'Messages array is required', code: 'INVALID_INPUT' })
+        return
+      }
+
+      const text = await chatWithAI(messages)
+
+      res.json({ content: [{ text }] })
     } catch (error) {
       next(error)
     }
