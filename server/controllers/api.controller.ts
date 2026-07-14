@@ -12,4 +12,12 @@ export class ApiController {
       next(error)
     }
   }
+
+  getSettings = (_req: Request, res: Response) => {
+    res.json({ contact_email: process.env.CONTACT_EMAIL || 'zemz.pro@gmail.com' })
+  }
+
+  getPage = (req: Request, res: Response) => {
+    res.json({ slug: req.params.slug, content: {} })
+  }
 }
