@@ -8,7 +8,7 @@ export function Contact() {
       <SEO
         title="RezFix | Contact Us - Get in Touch"
         description="Have questions or feedback about RezFix? Contact us for support, suggestions, or inquiries about our AI-powered resume analyzer."
-        canonicalUrl="https://rezfix.app/contact"
+        canonicalUrl="https://rezfix.zemz.pro/contact"
         keywords="contact RezFix, resume analyzer support, contact us"
       />
       <motion.div

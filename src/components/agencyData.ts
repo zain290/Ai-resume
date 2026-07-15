@@ -1,10 +1,10 @@
 export const AGENCY_DATA = {
   name: 'RezFix',
   tagline: 'AI-powered resume analyzer that scores your resume against job descriptions using the Google XYZ formula.',
-  website: 'rezfix.app',
+  website: 'rezfix.zemz.pro',
 
   contact: {
-    email: 'hello@rezfix.app',
+    email: 'hello@rezfix.zemz.pro',
   },
 
   overview: {

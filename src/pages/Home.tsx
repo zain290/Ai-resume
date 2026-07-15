@@ -9,9 +9,9 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'RezFix',
-  url: 'https://rezfix.app',
+  url: 'https://rezfix.zemz.pro',
   description: 'AI-powered resume analyzer that scores your resume against job descriptions.',
-  logo: 'https://rezfix.app/favicon.svg',
+  logo: 'https://rezfix.zemz.pro/favicon.svg',
   sameAs: [],
 }
 
@@ -19,11 +19,11 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'RezFix',
-  url: 'https://rezfix.app',
+  url: 'https://rezfix.zemz.pro',
   description: 'AI-powered resume analyzer and optimizer using the Google XYZ formula.',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://rezfix.app/?q={search_term_string}',
+    target: 'https://rezfix.zemz.pro/?q={search_term_string}',
     'query-input': 'required name=search_term_string',
   },
 }
@@ -80,7 +80,7 @@ export function Home() {
       <SEO
         title="RezFix - AI Resume Analyzer & Optimizer | Score Your Resume"
         description="Upload your resume and job description to get an instant AI-powered score using the Google XYZ formula. Identify missing keywords and get actionable rewrite suggestions."
-        canonicalUrl="https://rezfix.app/"
+        canonicalUrl="https://rezfix.zemz.pro/"
         keywords="resume analyzer, AI resume, resume scoring, Google XYZ formula, job application, career, ATS optimization, resume optimizer"
         schemaMarkup={JSON.stringify(organizationSchema) + ',' + JSON.stringify(websiteSchema) + ',' + JSON.stringify(faqSchema)}
       />

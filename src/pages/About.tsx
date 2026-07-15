@@ -54,7 +54,7 @@ const About: React.FC = () => {
       <SEO 
         title="RezFix | About Us - AI Resume Analyzer & Optimizer" 
         description="Learn about RezFix, the AI-powered resume analyzer that uses the Google XYZ formula to score and optimize your resume for job applications. Upload, analyze, and improve." 
-        canonicalUrl="https://rezfix.app/about"
+        canonicalUrl="https://rezfix.zemz.pro/about"
         keywords="about RezFix, resume analyzer, AI resume tool, career optimization"
       />
       <section className="about-hero-section">

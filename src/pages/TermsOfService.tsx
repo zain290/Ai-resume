@@ -117,7 +117,7 @@ const TermsOfService: React.FC = () => {
       <SEO 
         title="RezFix | Terms of Service - User Agreement" 
         description="Review the RezFix terms of service. Understand your rights and responsibilities when using our AI-powered resume analysis platform." 
-        canonicalUrl="https://rezfix.app/terms"
+        canonicalUrl="https://rezfix.zemz.pro/terms"
         keywords="terms of service, user agreement, RezFix terms, resume analyzer terms"
       />
       <section className="terms-hero-section">

@@ -1,5 +1,5 @@
 # RezFix — Resume Analyzer
-# https://rezfix.app
+# https://rezfix.zemz.pro
 
 # --- Global: allow all standard search crawlers ---
 User-agent: *
@@ -37,5 +37,5 @@ User-agent: PerplexityBot
 Allow: /
 
 # Sitemaps
-Sitemap: http://localhost:5322/sitemap_index.xml
-Sitemap: http://localhost:5322/sitemap.xml
+Sitemap: https://rezfix.zemz.pro/sitemap_index.xml
+Sitemap: https://rezfix.zemz.pro/sitemap.xml

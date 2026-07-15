@@ -115,7 +115,7 @@ const PrivacyPolicy: React.FC = () => {
       <SEO
         title="RezFix | Privacy Policy - Data Protection & Transparency"
         description="Read the RezFix privacy policy. Learn how we protect your personal data, handle resume uploads, and ensure your privacy when using our AI resume analyzer."
-        canonicalUrl="https://rezfix.app/privacy-policy"
+        canonicalUrl="https://rezfix.zemz.pro/privacy-policy"
         keywords="privacy policy, data protection, resume privacy, RezFix privacy"
       />
       <section className="privacy-hero-section">
