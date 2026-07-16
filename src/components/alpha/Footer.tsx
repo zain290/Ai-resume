@@ -37,15 +37,13 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
   return (
     <footer className="footer">
       <div className="footer-split">
-        {isDesktop && (
-          <nav className="footer-links">
-            {navLinks.map((link) => (
-              <Link key={link.name} to={link.path} className="footer-nav-link" style={{ fontWeight: '800' }}>
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-        )}
+        <nav className="footer-links">
+          {navLinks.map((link) => (
+            <Link key={link.name} to={link.path} className="footer-nav-link" style={{ fontWeight: '800' }}>
+              {link.name}
+            </Link>
+          ))}
+        </nav>
 
         <div
           className="footer-logo"

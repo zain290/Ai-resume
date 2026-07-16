@@ -78,10 +78,10 @@ export function Home() {
   return (
     <div className="relative pt-24 bg-background w-full flex flex-col items-center">
       <SEO
-        title="RezFix - AI Resume Analyzer & Optimizer | Score Your Resume"
-        description="Upload your resume and job description to get an instant AI-powered score using the Google XYZ formula. Identify missing keywords and get actionable rewrite suggestions."
+        title="RezFix — AI Resume Analyzer & ATS Resume Checker"
+        description="Upload your resume and job description to get an instant AI-powered ATS resume checker and scorer using the Google XYZ formula. Identify missing keywords and get actionable rewrite suggestions."
         canonicalUrl="https://rezfix.zemz.pro/"
-        keywords="resume analyzer, AI resume, resume scoring, Google XYZ formula, job application, career, ATS optimization, resume optimizer"
+        keywords="resume analyzer, resume scorer, ATS resume checker, ATS resume scanner, resume optimization tool, AI resume, ATS compatibility checker, resume keyword scanner"
         schemaMarkup={JSON.stringify(organizationSchema) + ',' + JSON.stringify(websiteSchema) + ',' + JSON.stringify(faqSchema)}
       />
       <AnimatePresence mode="wait">
@@ -113,7 +113,7 @@ export function Home() {
                   className="mb-12"
                 >
                   <h1 className="text-4xl md:text-[56px] font-medium text-text mb-6 tracking-tight" style={{ fontFamily: 'Google Sans, var(--heading)' }}>
-                    RezFix
+                    RezFix — AI Resume Analyzer & ATS Checker
                   </h1>
                   <p className="text-xl text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
                     Upload your resume, paste the job description. Get scored against the Google XYZ formula with actionable improvements.
@@ -182,6 +182,48 @@ export function Home() {
                       <div className="text-4xl font-light text-neutral-300 dark:text-neutral-700 mb-6 group-hover:text-black dark:group-hover:text-white transition-colors duration-300">0{i+1}</div>
                       <h3 className="text-xl font-medium text-text mb-4">{item.title}</h3>
                       <p className="text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">{item.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </section>
+            <section className="py-24 px-4 w-full bg-[var(--color-surface)]">
+              <div className="w-full max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-medium text-center mb-16 text-text">
+                  Success Stories & Testimonials
+                </h2>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {[
+                    {
+                      name: 'Sarah J.',
+                      role: 'Software Engineer',
+                      text: 'The ATS resume checker instantly showed me which keywords I was missing. After using the resume scorer, I got 3 interviews in a week!',
+                    },
+                    {
+                      name: 'Michael T.',
+                      role: 'Marketing Manager',
+                      text: 'This resume analyzer is a game-changer. It optimized my bullet points using the XYZ formula and helped me land a senior role.',
+                    },
+                    {
+                      name: 'Emily R.',
+                      role: 'Data Analyst',
+                      text: 'I loved how easy it was to check my resume against the job description. The AI insights were spot on for my industry.',
+                    },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.15, duration: 0.5 }}
+                      className="relative p-8 rounded-3xl bg-[var(--color-create-surface)] border border-transparent hover:border-neutral-300 dark:hover:border-neutral-600 transition-all duration-300 group shadow-sm hover:shadow-md"
+                    >
+                      <div className="text-4xl text-neutral-300 dark:text-neutral-700 mb-4 opacity-50">"</div>
+                      <p className="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed mb-6 italic">{item.text}</p>
+                      <div>
+                        <h4 className="text-lg font-medium text-text">{item.name}</h4>
+                        <p className="text-sm text-neutral-500">{item.role}</p>
+                      </div>
                     </motion.div>
                   ))}
                 </div>

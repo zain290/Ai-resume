@@ -121,7 +121,14 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
   }
 
-  .footer-links { display: none; }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
   .footer-logo {
     height: auto;
     min-height: 120px;
