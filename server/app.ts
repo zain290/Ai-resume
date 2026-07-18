@@ -17,6 +17,7 @@ export class App {
     this.configureStaticFiles()
     this.registerRoutes()
     this.registerErrorHandler()
+    this.configureSpaFallback()
   }
 
   private configureMiddleware() {
@@ -33,6 +34,14 @@ export class App {
   private registerRoutes() {
     this.app.use('/api', apiRoutes)
     this.app.use(sitemapRoutes)
+  }
+
+  private configureSpaFallback() {
+    const distPath = path.resolve(__dirname, '../dist')
+    this.app.use(express.static(distPath))
+    this.app.get('*', (_req, res) => {
+      res.sendFile(path.join(distPath, 'index.html'))
+    })
   }
 
   private registerErrorHandler() {

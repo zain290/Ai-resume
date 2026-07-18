@@ -2,6 +2,14 @@ import { motion } from 'framer-motion'
 import { Button } from '../components/ui/Button'
 import SEO from '../components/alpha/SEO'
 
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact RezFix',
+  description: 'Get in touch with the RezFix team for support, suggestions, or inquiries about our AI-powered resume analyzer.',
+  url: 'https://rezfix.zemz.pro/contact',
+}
+
 export function Contact() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-16">
@@ -10,6 +18,7 @@ export function Contact() {
         description="Have questions or feedback about RezFix? Contact us for support, suggestions, or inquiries about our AI-powered resume analyzer."
         canonicalUrl="https://rezfix.zemz.pro/contact"
         keywords="contact RezFix, resume analyzer support, contact us"
+        schemaMarkup={JSON.stringify(contactSchema)}
       />
       <motion.div
         initial={{ opacity: 0, y: 30 }}

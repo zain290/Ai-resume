@@ -30,6 +30,33 @@ const DEFAULTS = {
   cta_button_link: '/',
 };
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I use the analyzer?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Simply head over to the Home page, upload your PDF or DOCX resume, paste the job description you are targeting, and click Analyze.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is my data secure?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes! Your resumes are analyzed in memory and immediately discarded. We do not store or share your personal data.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the Google XYZ formula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'It is a proven method for writing resume bullets: "Accomplished X as measured by Y, by doing Z." Our AI checks your bullets against this standard.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I have to pay to use this?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No, RezFix is completely free to use for job seekers.' },
+    },
+  ],
+}
+
 const About: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [pageData, setPageData] = useState(DEFAULTS);
@@ -56,6 +83,7 @@ const About: React.FC = () => {
         description="Learn about RezFix, the AI-powered resume analyzer that uses the Google XYZ formula to score and optimize your resume for job applications. Upload, analyze, and improve." 
         canonicalUrl="https://rezfix.zemz.pro/about"
         keywords="about RezFix, resume analyzer, AI resume tool, career optimization"
+        schemaMarkup={JSON.stringify(faqSchema)}
       />
       <section className="about-hero-section">
         <div className="antigravity-wrapper" style={{ opacity: 0.8 }}>
