@@ -39,7 +39,7 @@ export class App {
   private configureSpaFallback() {
     const distPath = path.resolve(__dirname, '../dist')
     this.app.use(express.static(distPath))
-    this.app.get('*', (_req, res) => {
+    this.app.get('/{*path}', (_req, res) => {
       res.sendFile(path.join(distPath, 'index.html'))
     })
   }
